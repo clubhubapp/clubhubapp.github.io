@@ -10,38 +10,151 @@
         <link href="media/favicon.png" rel="icon">
     </head>
     <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">ClubHub</a>
-        </div>
-          <ul class="nav navbar-nav">
-            <li class="#"><a href="#">Home <span class="sr-only">(current)</span></a><span class="tab-bar"></span></li>
-            <li><a href="">Problem</a></li>
-            <li><a href="">Solution</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Download Our App</a></li>
+    <header class="navbar">
+      <div class="row">
+        <a class="logo" href="#">ClubHub</a>
+        <button class="toggle">
+          <span class="icon"></span>
+        </button>
+        <nav>
+          <ul class="nav">
+            <li><a href="#problem">Problem</a></li>
+            <li><a href="#solution">Solution</a></li>
+            <li><a href="#about">About Us</a></li>
+            <span class="active"></span>
           </ul>
-        </div>
-    </nav>
-    
-        <div class="text-center jumbotron_with_background">
-            <h1 style="color:white">ClubHub</h1>
+        </nav>
+      </div>
+    </header>
+        <div class = "jumbotron">
+            <div class = "container-fluid">
+                <div class="row">
+                    <div class = "col-md-7">
+                        <img src ="media/logo.png" class="banner-logo" >
+                        <h1>ClubHub</h1>
+                    </div>
+                    <div class = "col-md-5">
+                        <img src="media/preview1.png">
+                    </div>
+                </div>
+            </div>
         </div>
         <!--we'll delete the border later-->
-        <div class="col row testborder">
-            <div class="col-md-7">
-                <p>col-md-7</p>
-                <p>test</p>
-                
-                <p>The clubhub app is a great app. You should download it.</p>
+        <div class="container row testborder">
+            <div id="problem">
+                <div class="col-md-12">
+                </div>
             </div>
-            <div class="col-md-5">
-                <p>col-md-5</p>
-                <p>test</p>
+            <div id="solution">
+                <div class="col-md-7">
+                    <p>col-md-7</p>
+                    <p>test</p>
+                    
+                    <p>The clubhub app is a great app. You should download it.</p>
+                    <p>The clubhub app is a great app. You should download it.</p>
+                    <p>The clubhub app is a great app. You should download it.</p>
+                    <p>The clubhub app is a great app. You should download it.</p>
+                    <p>The clubhub app is a great app. You should download it.</p>
+                    <p>The clubhub app is a great app. You should download it.</p>
+                    <p>The clubhub app is a great app. You should download it.</p>
+                </div>
+                <div class="col-md-5">
+                    <p>col-md-5</p>
+                    <p>test</p>
+                </div>
+            </div>
+            <div id="about">
             </div>
         </div>
+<script src="jquery.min.js"></script>
+    <script>
+     $(window).scroll(function() {
+        // Sticky navbar & banner arrow
+        if ($(window).scrollTop() > 50) {
+          $('.navbar').addClass('sticky');
+        } else {
+          $('.navbar').removeClass('sticky');
+        }
+
+        
+      });
+
+      // Mobile navigation
+      $('.toggle').click(function() {
+        $('.navbar').toggleClass('open');
+      });
+
+      $('.navbar li a').click(function() {
+        $('.navbar').removeClass('open');
+      });
+
+      var navbarHeight = $('.navbar').outerHeight(); // define so it's not messed up when mobile navbar expands
+
+      // Anchor links
+      $(document).on('click', 'a[href^="#"]', function(e) {
+        e.preventDefault();
+
+        var href = $(this).attr('href');
+
+        if (href == '#') {
+          $('html, body').animate({
+            scrollTop: 0
+          }, 500);
+        } else {
+          $('html, body').animate({
+            scrollTop: $(href).offset().top - navbarHeight // account for navbar blocking top
+          }, 500);
+        }
+      });
+
+    
+     if (screen.width > 766) { // only for desktop
+            navActiveBar($('.nav'), (tab, width, tempMarginLeft) => {
+              tab.mouseover(() => { // when tab is hovered over
+                $('.active').css({width: width + '%', marginLeft: tempMarginLeft + '%'}); // adjust active bar
+              });
+    
+              // move underline back to active tab when user unhovers other tab
+              $('.banner').mouseover(() => { 
+                scrollProgress(tab, width, tempMarginLeft);
+              });
+              $('main').mouseover(() => {
+                scrollProgress(tab, width, tempMarginLeft);
+              });
+    
+              $('html, body').scroll((e) => { // move active underline as user scrolls
+                // if scroll triggered manually
+                if (e.originalEvent) scrollProgress(tab, width, tempMarginLeft);
+              });
+            });
+    
+            function scrollProgress(tab, width, tempMarginLeft) { // adjust active tab based on section user is currently viewing
+              var scrollBottom = $(window).scrollTop() + $(window).height();
+              var section = $(tab.children().first().attr('href')); // select correct section from href attribute of tab
+    
+              if (scrollBottom > section.offset().top + section.height() / 2) { // if scroll bottom is at least halfway through section then move the active bar
+                $('.active').css({width: width + '%', marginLeft: tempMarginLeft + '%'}); // adjust active bar
+              }
+            }
+    
+            function navActiveBar(menu, callback) {
+              var marginLeft = [];
+              menu.children('li').each(function(index) { // Loop through nav children (li)
+                // Dynamic width/margin calculation
+                var width = getPercentage($(this).width() + parseInt($(this).css('marginLeft')), menu.width());
+                var tempMarginLeft = 0;
+                // don't modify first element's positioning
+                if (index != 0) tempMarginLeft = marginLeft.reduce((a, b) => a + b, 0); // set temp margin of active bar to sum of widths of previous tabs
+                callback($(this), width, tempMarginLeft); // callback
+                marginLeft.push(width); // store width in array to use for positioning underlines on following tabs
+              });
+            }
+    
+            function getPercentage(min, max) {
+              return min / max * 100;
+            }
+          }
+        </script>
     </body>
 </html>
 <!---
