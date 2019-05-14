@@ -6,3 +6,17 @@
     background-image: url("../media/dhs.jpg");
     background-position: center;
 }
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient(to bottom left, #33ccff 0%, #ff99cc 100%);
+}
+
+.text-center{
+    text-align:center;
+}
