@@ -10,65 +10,73 @@
         <link href="media/favicon.png" rel="icon">
     </head>
     <body>
-    <header class="navbar">
-      <div class="row">
-        <a class="logo" href="#">ClubHub</a>
-        <button class="toggle">
-          <span class="icon"></span>
-        </button>
-        <nav>
-          <ul class="nav">
-            <li><a href="#problem">Problem</a></li>
-            <li><a href="#solution">Solution</a></li>
-            <li><a href="#about">About Us</a></li>
-            <span class="active"></span>
-          </ul>
-        </nav>
+      <header class="navbar">
+        <div class="row">
+          <a class="logo" href="#">ClubHub</a>
+          <button class="toggle">
+            <span class="icon"></span>
+          </button>
+          <nav>
+            <ul class="nav">
+              <li><a href="#problem">Problem</a></li>
+              <li><a href="#solution">Solution</a></li>
+              <li><a href="#about">About Us</a></li>
+              <span class="active"></span>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div class = "jumbotron">
+        <div class = "container-fluid">
+          <div class="row">
+            <div class = "col-md-7">
+              <img src ="media/logo.png" class="banner-logo" >
+              <h1>ClubHub</h1>
+            </div>
+            <div class = "col-md-5">
+              <img src="media/preview1.png">
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
-        <div class = "jumbotron">
-            <div class = "container-fluid">
-                <div class="row">
-                    <div class = "col-md-7">
-                        <img src ="media/logo.png" class="banner-logo" >
-                        <h1>ClubHub</h1>
-                    </div>
-                    <div class = "col-md-5">
-                        <img src="media/preview1.png">
-                    </div>
-                </div>
-            </div>
+<!--we'll delete the border later-->
+      <div class="container col row">
+        <div id="problem">
         </div>
-        <!--we'll delete the border later-->
-        <div class="container row testborder">
-            <div id="problem">
-                <div class="col-md-12">
-                </div>
-            </div>
-            <div id="solution">
-                <div class="col-md-7">
-                    <p>col-md-7</p>
-                    <p>test</p>
-                    
-                    <p>The clubhub app is a great app. You should download it.</p>
-                    <p>The clubhub app is a great app. You should download it.</p>
-                    <p>The clubhub app is a great app. You should download it.</p>
-                    <p>The clubhub app is a great app. You should download it.</p>
-                    <p>The clubhub app is a great app. You should download it.</p>
-                    <p>The clubhub app is a great app. You should download it.</p>
-                    <p>The clubhub app is a great app. You should download it.</p>
-                </div>
-                <div class="col-md-5">
-                    <p>col-md-5</p>
-                    <p>test</p>
-                </div>
-            </div>
-            <div id="about">
-            </div>
+        <div id="solution">
+          <div class="testborder">
+            <p>col-md-7</p>
+            <p>test</p>
+            <p>The clubhub app is a great app. You should download it.</p>
+            <p>The clubhub app is a great app. You should download it.</p>
+            <p>The clubhub app is a great app. You should download it.</p>
+            <p>The clubhub app is a great app. You should download it.</p>
+            <p>The clubhub app is a great app. You should download it.</p>
+            <p>The clubhub app is a great app. You should download it.</p>
+            <p>The clubhub app is a great app. You should download it.</p>
+          </div>
+          <div class="testborder">
+            <p>An app great is the app clubhub. Download it you should</p>
+            <p>An app great is the app clubhub. Download it you should</p>
+            <p>An app great is the app clubhub. Download it you should</p>
+            <p>An app great is the app clubhub. Download it you should</p>
+            <p>An app great is the app clubhub. Download it you should</p>
+            <p>An app great is the app clubhub. Download it you should</p>
+            <p>An app great is the app clubhub. Download it you should</p>
+            <p>An app great is the app clubhub. Download it you should</p>
+            <p>An app great is the app clubhub. Download it you should</p>
+            <p>An app great is the app clubhub. Download it you should</p>
+            <p>An app great is the app clubhub. Download it you should</p>
+
+            <p>test</p>
+          </div>
         </div>
-<script src="jquery.min.js"></script>
-    <script>
-     $(window).scroll(function() {
+      <div id="about">
+      </div>
+    </div>
+    <script src="jquery.min.js"></script>
+      <script>
+        $(window).scroll(function() {
         // Sticky navbar & banner arrow
         if ($(window).scrollTop() > 50) {
           $('.navbar').addClass('sticky');
@@ -154,8 +162,8 @@
               return min / max * 100;
             }
           }
-        </script>
-    </body>
+    </script>
+  </body>
 </html>
 <!---
 git add .

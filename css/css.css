@@ -14,10 +14,8 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background: linear-gradient(to bottom left, #33ccff 0%, #ff99cc 100%);
-
 }
 .jumbotron img {
-    padding-top: 10px ;
     max-height: 80vh;
 }
 .text-center{
@@ -28,10 +26,11 @@
     border-style: solid;
 }
 .banner-logo {
-    width: 400px;
+    width: 200px;
 }
 .jumbotron h1 {
     color: white;
+    font-size: 80px;
     margin-top: 5rem;
 }
 /* ========== */
