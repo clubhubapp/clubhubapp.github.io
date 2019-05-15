@@ -1,6 +1,5 @@
 .jumbotron {
     min-height: 100vh;
-    margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background: linear-gradient(to bottom left, #33ccff 0%, #ff99cc 100%);
@@ -28,6 +27,12 @@
   .jumbotron h1 {
     font-size: 4rem;
   }
+}
+
+.spacer {
+  width: 100%;
+  height: 20vh;
+  background: linear-gradient(to top left, #33ccff 0%, #ff99cc 100%);
 }
 
 .profile-picture img {
@@ -280,7 +285,7 @@ nav {
   bottom: -15px;
   height: 2px;
   width: 0;
-  background: #0077BE;
+  background: #9FB2E5;
   transition: 0.2s;
 }
 
