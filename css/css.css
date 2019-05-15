@@ -1,33 +1,3 @@
-#navbar {
-  display: flex;
-  background-color: black;
-  transform: translateY(-100%);
-  transition: transform .5s cubic-bezier(.4,0,.2,1);
-}
-#navbar a {
-    color: white;
-    text-decoration: none;
-}
-#navbar > * {
-  padding: 1rem;
-}
-body {
-  margin: 0;
-}
-.nav-container:hover #navbar {
-  transform: translateY(0);
-}
-
-.jumbotron_with_background{
-    padding: 2rem 1rem;
-    margin-bottom: 2rem;
-    background-color: #e9ecef;
-    border-radius: 0.3rem;
-    background-image: url("../media/dhs.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
 .jumbotron {
     min-height: 100vh;
     margin: 0;
@@ -35,24 +5,77 @@ body {
     background-attachment: fixed;
     background: linear-gradient(to bottom left, #33ccff 0%, #ff99cc 100%);
 }
-.jumbotron img {
+.jumbotron .col-md-5 img {
     max-height: 80vh;
+    display: block;
+    margin: 0 auto;
 }
 .text-center{
     text-align:center;
 }
-
-.testborder{
-    border-style: solid;
-}
 .banner-logo {
     width: 400px;
+    max-width: 100%;
 }
 .jumbotron h1 {
     color: white;
-    font-size: 80px;
+    font-size: 5rem;
     margin-top: 5rem;
     padding-left: 50px;
+}
+
+@media only screen and (max-width: 766px) {
+  .jumbotron h1 {
+    font-size: 4rem;
+  }
+}
+
+.profile-picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 5px solid #9FB2E5;
+}
+
+.profile-picture {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 100%;
+}
+
+.profile-picture:hover .overlay {
+  opacity: 1;
+}
+
+.profile-picture .text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+#solution img {
+  max-width: 100%;
 }
 /* ========== */
 /* NAV TOGGLE */
@@ -169,8 +192,8 @@ header a:hover {
 }
 
 .logo {
-  width: 50px;
   font-size: 25px;
+  height: 25px;
   color: #8f8f8f;
   text-transform: uppercase;
   float: left;
@@ -179,6 +202,10 @@ header a:hover {
   line-height: 1;
   margin-bottom: 10px;
   user-select: none;
+}
+
+.logo img {
+  height: 25px;
 }
 
 @media only screen and (max-width: 766px) {
