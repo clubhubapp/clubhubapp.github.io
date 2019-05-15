@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en-US">
-   <head>
+  <head>
     <title>ClubHub</title>
-    <link href="css/css.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-4.3.1-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-4.3.1-dist/css/bootstrap-reboot.css" rel="stylesheet" type="text/css">
-    <link href="css/css.css" rel="stylesheet" type="text/css">
-    <link href="media/favicon.png" rel="icon">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/>
-   </head>
-   <body>
+    <meta charset="utf-8" />
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min,css" rel="stylesheet" type="text/css" />
+    <link href="favicon.png" rel="icon" type="img/png" />
+  </head>
+  <body>
     <header class="navbar">
       <div class="row">
-       <a class="logo" href="#"><img src="media/logo-black.png" /> ClubHub</a>
-       <button class="toggle">
-        <span class="icon"></span>
-       </button>
-       <nav>
-        <ul class="nav">
-          <li><a href="#problem">Problem</a></li>
-          <li><a href="#solution">Solution</a></li>
-          <li><a href="#team">Our Team</a></li>
-          <span class="active"></span>
-        </ul>
-       </nav>
+        <a class="logo" href="#"><img src="media/logo-black.png" /> ClubHub</a>
+        <button class="toggle">
+          <span class="icon"></span>
+        </button>
+        <nav>
+          <ul class="nav">
+            <li><a href="#problem">Problem</a></li>
+            <li><a href="#solution">Solution</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <span class="active"></span>
+          </ul>
+        </nav>
       </div>
     </header>
-    <div class = "jumbotron">
-      <div class = "container-fluid">
+    <div class="jumbotron">
+      <div class="container-fluid">
        <div class="row">
-        <div class = "col-md-7">
-          <img src ="media/logo.png" class="banner-logo" >
+        <div class="col-md-7">
+          <img src="media/logo.png" class="banner-logo" />
           <h1>ClubHub</h1>
         </div>
-        <div class = "col-md-5">
+        <div class="col-md-5">
           <img src="media/preview1.png">
         </div>
        </div>
@@ -90,54 +88,52 @@
       <p>Made with &#10084; by Alex, Jack, Jacob, and Jonathan</p>
     </footer>
    </main>
-   <script src="jquery.min.js"></script>
+   <script src="js/jquery.min.js"></script>
     <script>
+      // Sticky navbar
       $(window).scroll(function() {
-      // Sticky navbar & banner arrow
-      if ($(window).scrollTop() > 0) {
-       $('.navbar').addClass('sticky');
-      } else {
-       $('.navbar').removeClass('sticky');
-      }
-
+        if ($(window).scrollTop() > 0) {
+         $('.navbar').addClass('sticky');
+        } else {
+         $('.navbar').removeClass('sticky');
+        }
+      });
       
-    });
+      // Mobile navigation
+      $('.toggle').click(function() {
+        $('.navbar').toggleClass('open');
+      });
+      
+      $('.navbar li a').click(function() {
+        $('.navbar').removeClass('open');
+      });
+      
+      var navbarHeight = $('.navbar').outerHeight(); // define so it's not messed up when mobile navbar expands
+      
+      // Anchor links
+      $(document).on('click', 'a[href^="#"]', function(e) {
+        e.preventDefault();
+        
+        var href = $(this).attr('href');
+        
+        if (href == '#') {
+         $('html, body').animate({
+          scrollTop: 0
+         }, 500);
+        } else {
+         $('html, body').animate({
+          scrollTop: $(href).offset().top - navbarHeight // account for navbar blocking top
+         }, 500);
+        }
+      });
 
-    // Mobile navigation
-    $('.toggle').click(function() {
-      $('.navbar').toggleClass('open');
-    });
-
-    $('.navbar li a').click(function() {
-      $('.navbar').removeClass('open');
-    });
-
-    var navbarHeight = $('.navbar').outerHeight(); // define so it's not messed up when mobile navbar expands
-
-    // Anchor links
-    $(document).on('click', 'a[href^="#"]', function(e) {
-      e.preventDefault();
-
-      var href = $(this).attr('href');
-
-      if (href == '#') {
-       $('html, body').animate({
-        scrollTop: 0
-       }, 500);
-      } else {
-       $('html, body').animate({
-        scrollTop: $(href).offset().top - navbarHeight // account for navbar blocking top
-       }, 500);
-      }
-    });
-
-   
-    if (screen.width > 766) { // only for desktop
+      // navbar
+      if (screen.width > 766) { // only for desktop
         navActiveBar($('.nav'), (tab, width, tempMarginLeft) => {
           tab.mouseover(() => { // when tab is hovered over
            $('.active').css({width: width + '%', marginLeft: tempMarginLeft + '%'}); // adjust active bar
           });
-   
+          
           // move underline back to active tab when user unhovers other tab
           $('.jumbotron').mouseover(() => { 
            scrollProgress(tab, width, tempMarginLeft);
@@ -181,8 +177,3 @@
    </script>
   </body>
 </html>
-<!---
-git add .
-git commit -m "name of commit"
-git push -u origin master
---->
