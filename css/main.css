@@ -85,6 +85,7 @@ footer {
   background-attachment: fixed;
   background: linear-gradient(to bottom left, #33ccff 0%, #ff99cc 100%);
   position: relative;
+  border-radius: 0;
 }
 
 .jumbotron::after {
