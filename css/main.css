@@ -44,8 +44,8 @@ footer {
 .profile-picture {
   position: relative;
   display: inline-block;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
 }
 
 .profile-picture:hover .overlay {
