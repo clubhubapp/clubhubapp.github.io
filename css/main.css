@@ -74,6 +74,11 @@ footer {
 /* BANNER */
 /* ====== */
 
+.badge img {
+  max-height: 150px;
+  margin-top: 5rem;
+}
+
 .banner-logo {
   width: 400px;
   max-width: 100%;
